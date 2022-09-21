@@ -1,0 +1,20 @@
+name: first workflow
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      name: firstJob script
+      run: echo Hello from the first job
+      
+  second_job:
+    runs-on: ubuntu-latest
+    steps:
+      name: secondJob script
+      shell: bash
+      run: |
+        echo this is the second job
+        echo and a multiline script
