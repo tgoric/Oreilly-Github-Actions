@@ -8,7 +8,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: firstJob script
+        shell: bash
         run: echo Hello from the first job
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: greetings
+        id: greetings
+        uses: actions/hello-world-javascript-action@main
+        with:
+          who-to-greet: 'Test'
+      - name: time
+        run: |
+          echo "The time of the greeting was at: ${{ steps.greetings.outputs.time }}"
       
   second_job:
     runs-on: ubuntu-latest
